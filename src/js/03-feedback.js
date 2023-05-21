@@ -1,5 +1,6 @@
-const formElem = document.querySelector(".feedback-form");
+import { save, load } from "./04-storage.js";
 
+const formElem = document.querySelector(".feedback-form");
 
 formElem.addEventListener(`submit`, handleSubmit);
 
