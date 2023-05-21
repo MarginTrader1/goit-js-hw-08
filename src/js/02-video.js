@@ -21,7 +21,7 @@ player.on("timeupdate", throttle((data) => {
 }, 1000));
 
 // забираем время из хранилища
-const savedTime = localStorage.getItem('videoplayer-current-time');
+const savedTime = localStorage.getItem("videoplayer-current-time");
 
 // время при перезагрузке
 player.setCurrentTime(savedTime);
