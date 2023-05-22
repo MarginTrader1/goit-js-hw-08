@@ -39,9 +39,11 @@ function handleSubmit(event) {
 // забираем объект из хранилища 
 const dataStorage = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-// устанавливаем данные в форму при перезагрузке 
-formElement.email.value = dataStorage.email;
-formElement.message.value = dataStorage.message;
+// устанавливаем данные в форму при перезагрузке и проверяем наличие объекта
+if (dataStorage) {
+  formElement.email.value = dataStorage.email;
+  formElement.message.value = dataStorage.message;
+};
 
 // функция для создания объекта
 function createStorageObject (email, message){
