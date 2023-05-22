@@ -5,7 +5,7 @@ import throttle from "lodash.throttle";
 
 const formElement = document.querySelector(".feedback-form");
 
-formElement.addEventListener(`input`, throttle(handleInput, 500));
+formElement.addEventListener(`input`, handleInput);
 formElement.addEventListener(`submit`, handleSubmit);
 
 const STORAGE_KEY = "feedback-form-state";
@@ -13,8 +13,8 @@ const STORAGE_KEY = "feedback-form-state";
 // функция заполнения формы
 function handleInput(event) {
 
-  const email = event.target.email.value;
-  const message = event.target.message.value;
+  const email = event.currentTarget.email.value;
+  const message = event.currentTarget.message.value;
   
   // добавляем объект в хранилище
   localStorage.setItem(STORAGE_KEY, 
@@ -25,8 +25,8 @@ function handleInput(event) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  const email = event.target.email.value;
-  const message = event.target.message.value;
+  const email = event.currentTarget.email.value;
+  const message = event.currentTarget.message.value;
     
     // проверка полей
       if (email === "" || message === "") {
