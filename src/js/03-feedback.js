@@ -13,8 +13,8 @@ const STORAGE_KEY = "feedback-form-state";
 // функция заполнения формы
 function handleInput(event) {
 
-  const email = event.currentTarget.email.value;
-  const message = event.currentTarget.message.value;
+  const email = formElement.email.value;
+  const message = formElement.message.value;
   
   // добавляем объект в хранилище
   localStorage.setItem(STORAGE_KEY, 
@@ -25,15 +25,18 @@ function handleInput(event) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  const email = event.currentTarget.email.value;
-  const message = event.currentTarget.message.value;
+  const email = formElement.email.value;
+  const message = formElement.message.value;
     
     // проверка полей
-      if (email === "" || message === "") {
-        return alert(`Все поля должны быть заполнены`);
-      }
-      event.target.reset();
-      localStorage.removeItem(STORAGE_KEY);
+    if (email === "" || message === "") {
+      return alert(`Все поля должны быть заполнены`);
+    }
+    event.target.reset();
+    localStorage.removeItem(STORAGE_KEY);
+
+    // выводим объект в консоль
+    console.log(createStorageObject(email, message));
 }
 
 // забираем объект из хранилища 
